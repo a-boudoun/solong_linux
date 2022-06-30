@@ -6,7 +6,7 @@ BONUS = so_long_bonus
 
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
-MLX_FLAG = -lmlx -framework OpenGL -framework AppKit
+MLX_FLAG = -lmlx -lm -lXext -lX11 ../mlxl/libmlx.a
 
 
 INCLUDE_B = ./include
@@ -35,7 +35,7 @@ BON_OBJ = $(BON_FILES:%bonus.c=%bonus.o)
 all : $(BONUS)
 
 $(BONUS): $(BON_OBJ) $(FTPRINTF_LIB) $(GETNEXTLINE_LIB)
-	@$(CC) $(FLAGS) $(MLX_FLAG) $(FTPRINTF_LIB) $(GETNEXTLINE_LIB) $(BON_OBJ) -o $(BONUS)
+	@$(CC) $(FLAGS) $(BON_OBJ) $(MLX_FLAG) $(FTPRINTF_LIB) $(GETNEXTLINE_LIB) -o $(BONUS)
 
 
 %bonus.o : %bonus.c $(BONUS_HEADER)

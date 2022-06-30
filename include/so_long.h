@@ -6,7 +6,7 @@
 /*   By: aboudoun <aboudoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 17:50:21 by aboudoun          #+#    #+#             */
-/*   Updated: 2022/06/29 21:57:22 by aboudoun         ###   ########.fr       */
+/*   Updated: 2022/06/30 19:10:30 by aboudoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,15 +62,15 @@ typedef struct s_program{
 # define HEIGHT 40
 # define WIDTH 40
 
-# define W 13
-# define S 1
-# define A 0
-# define D 2
-# define ESC 53
-# define UP 126
-# define DOWN 125
-# define LEFT 123
-# define RIGHT 124
+# define W 119
+# define S 115
+# define A 97
+# define D 100
+# define ESC 65307
+# define UP 65362
+# define DOWN 65364
+# define LEFT 65361
+# define RIGHT 65363
 
 void	exit_error(int error, t_program *program);
 void	exit_success(int nb, t_program *program);

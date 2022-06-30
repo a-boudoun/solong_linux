@@ -7,7 +7,7 @@ NAME = so_long
 
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
-MLX_FLAG = -lmlx -framework OpenGL -framework AppKit
+MLX_FLAG = -lmlx -lm -lXext -lX11 ./mlxl/libmlx.a
 
 INCLUDE_M = ./include
 
@@ -34,10 +34,10 @@ MAND_OBJ = $(MAND_FILES:%.c=%.o)
 all : $(NAME)
 
 $(NAME): $(MAND_OBJ) $(FTPRINTF_LIB) $(GETNEXTLINE_LIB)
-	@$(CC) $(FLAGS) $(MLX_FLAG) $(FTPRINTF_LIB) $(GETNEXTLINE_LIB) $(MAND_OBJ) -o $@
+	@$(CC) $(FLAGS) $(MAND_OBJ) $(MLX_FLAG) $(FTPRINTF_LIB)  $(GETNEXTLINE_LIB) -o $@
 
 %.o : %.c $(HEADER)
-	@$(CC) -I$(INCLUDE_M) $(FLAGS) -o $@ -c $<
+	@$(CC) $(FLAGS) -o $@ -c $< -I$(INCLUDE_M)
 	@echo "$(GREEN)" "compiling $<"
 
 $(GETNEXTLINE_LIB):
